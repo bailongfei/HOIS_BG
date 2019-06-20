@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xh.dao.TbGoodsDao">
+ <select id="queryTbGoods" parameterType="map" resultType="map">
+   select tg.*,ty.* from tbgoods tg join tbgoodstype ty on tg.typeId=ty.typeId
+   <where>
+     <if test="goodsName!=null and goodsName!=''">
+       and goodsName like "%"#{goodsName}"%"
+     </if>
+     <if test="typeName!=null and typeName!=''">
+       and typeName like "%"#{typeName}"%"
+     </if>
+   </where>
+    order by goodsId ASC
+ </select>
+ <select id="queryTbGoodsType" resultType="map">
+   select * from tbgoodstype
+ </select>
+ <insert id="saveTbGoods" parameterType="map" >
+     insert into TbGoods(goodsName,typeId,goodsDesc,goodsUnitPrice,sellCount,goodsDate) values(#{goodsName},#{typeId},#{goodsDesc},#{goodsUnitPrice},#{sellCount},#{goodsDate})
+ </insert>
+ <select id="findById" parameterType="Integer" resultType="map">
+  select * from TbGoods where goodsId=#{id}
+ </select>
+ <update id="updateTbGoods" parameterType="map">
+   update TbGoods
+   <set>
+     <if test="goodsName!=null">goodsName=#{goodsName},</if>
+       <if test="typeId!=null">typeId=#{typeId},</if>
+       <if test="goodsDesc!=null">goodsDesc=#{goodsDesc},</if>
+       <if test="goodsUnitPrice!=null">goodsUnitPrice=#{goodsUnitPrice},</if>
+       <if test="goodsImageName!=null">goodsImageName=#{goodsImageName},</if>
+       <if test="sellCount!=null">sellCount=#{sellCount},</if>
+       <if test="goodsDate!=null">goodsDate=#{goodsDate}</if>
+   </set>
+  where goodsId=#{goodsId}
+ </update>
+ <delete id="deleteTbGoods" parameterType="int">
+   delete from TbGoods where goodsId=#{id}
+ </delete>
+</mapper>

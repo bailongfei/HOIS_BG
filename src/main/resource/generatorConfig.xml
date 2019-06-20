@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!-- <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd"> -->
+<generatorConfiguration>
+  <!--导入属性配置-->
+	<properties resource="orclJdbc.properties" />
+	<!-- context 是逆向工程的主要配置信息 -->
+    <!-- id：起个名字 -->
+    <!-- targetRuntime：设置生成的文件适用于那个 mybatis 版本 -->
+	<context id="oracleTables" targetRuntime="MyBatis3">
+	<!-- 是否去除自动生成的注释 true：是 ： false:否  -->
+	    <commentGenerator >  
+            <property name="suppressAllComments" value="true"/><!-- 是否取消注释 -->  
+            <property name="suppressDate" value="true" /> <!-- 是否生成注释代时间戳-->  
+        </commentGenerator> 
+	<!--jdbc的数据库连接-->
+	       <!--数据库链接URL，用户名、密码 -->
+		   <!-- <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+	            connectionURL="jdbc:mysql://localhost/mytest" userId="root" password="root">
+	       </jdbcConnection> -->
+		<jdbcConnection  driverClass="oracle.jdbc.driver.OracleDriver"  connectionURL="${jdbc.url}"  userId="${jdbc.username}"  password="${jdbc.password}"/>
+		<!--指定生成的类型为java类型，避免数据库中number等类型字段 -->
+		<!--非必须，类型处理器，在数据库类型和java类型之间的转换控制-->
+		 <javaTypeResolver>
+		    <!-- 默认情况下数据库中的 decimal，bigInt 在 Java 对应是 sql 下的 BigDecimal 类 -->
+            <!-- 不是 double 和 long 类型 -->
+            <!-- 使用常用的基本类型代替 sql 包下的引用类型 -->
+            <property name="forceBigDecimals"  value="false" />
+        </javaTypeResolver>
+		<!--自动生成的实体的存放包路径 -->
+		 <!-- targetPackage：生成的实体类所在的包 -->
+        <!-- targetProject：生成的实体类所在的硬盘位置 -->
+		<javaModelGenerator targetPackage="com.xh.entity" targetProject="src/main/java">
+            <!-- 是否允许子包 -->
+            <property name="enableSubPackages" value="true"/>
+            <!-- 是否清理从数据库中查询出的字符串左右两边的空白字符 -->
+			<property name="trimStrings" value="true"/>
+		</javaModelGenerator>
+		<!--自动生成的*Mapper.xml文件存放路径 -->
+		<sqlMapGenerator targetPackage="com.xh.mapping" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+		<!--自动生成的*Mapper.java存放路径 -->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.xh.dao" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+		<!-- 要生成那些表(更改tableName表名和domainObjectName生成类名就可以) -->
+		<!-- <table tableName="accumulation" domainObjectName="Accumulation" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+           <generatedKey column="ID" sqlStatement="selectuuid_short()" identity="false" />
+        </table> -->
+        <!-- oracle中，表名，字段名都应该为大写 -->
+        
+		<table   tableName="ScheduleType"   domainObjectName="ScheduleType"  enableCountByExample="false"   enableUpdateByExample="false"  enableDeleteByExample="false"   enableSelectByExample="false"  selectByExampleQueryId="false">
+			<generatedKey   column="ID"   sqlStatement="selectuuid_short()" identity="false" />
+		</table>
+
+
+</context>
+</generatorConfiguration>
