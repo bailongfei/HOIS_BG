@@ -36,10 +36,10 @@
             <!-- 是否清理从数据库中查询出的字符串左右两边的空白字符 -->
 			<property name="trimStrings" value="true"/>
 		</javaModelGenerator>
-		<!--自动生成的*Mapper.xml文件存放路径 -->
-		<sqlMapGenerator targetPackage="com.xh.mapping" targetProject="src/main/java">
-            <property name="enableSubPackages" value="true"/>
-        </sqlMapGenerator>
+		<!--&lt;!&ndash;自动生成的*Mapper.xml文件存放路径 &ndash;&gt;-->
+		<!--<sqlMapGenerator targetPackage="com.xh.mapping" targetProject="src/main/java">-->
+            <!--<property name="enableSubPackages" value="true"/>-->
+        <!--</sqlMapGenerator>-->
 		<!--自动生成的*Mapper.java存放路径 -->
 		<javaClientGenerator type="XMLMAPPER" targetPackage="com.xh.dao" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>

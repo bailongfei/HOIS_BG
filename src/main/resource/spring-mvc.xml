@@ -32,7 +32,7 @@
     </bean>
     <!-- 视图解析器 --><!--异步不用  -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/view/"></property>
+        <property name="prefix" value="/admin/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
     <!-- 静态资源配置 -->
