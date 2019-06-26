@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </div>
 	<div data-options="region:'west',split:true,title:'菜单'" style="width:150px;padding:10px;">
 	    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="addTab('新增','admin/addCheck.jsp')">新QQ增...</a>
-		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="addTab('编辑排班','admin/')">编QQ辑...</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="addTab('编辑排班','admin/depList.jsp')">编QQ辑...</a>
 		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="addTab('查看排班','admin/room_select.jsp')">查看QQ...</a>
 		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="addTab('新增','admin/JQueryDate/JQueryDate.jsp')">日期格式</a>
 	</div>

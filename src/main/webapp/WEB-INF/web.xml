@@ -41,25 +41,38 @@
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
+
+  <servlet>
+    <servlet-name>CXFServlet</servlet-name>
+    <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CXFServlet</servlet-name>
+    <url-pattern>/services/*</url-pattern>
+  </servlet-mapping>
   <!-- 定义一个Servlet，主要是处理WebService请求：CXF接口 -->
+  <!--
   <servlet >
     <servlet-name>CXFServlet</servlet-name>
     <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
     <load-on-startup>2</load-on-startup>
   </servlet>
+  -->
   <servlet-mapping>
     <servlet-name>springmvc</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
+  <!--
   <servlet-mapping >
     <servlet-name>CXFServlet</servlet-name>
     <url-pattern>/webservice/*</url-pattern>
   </servlet-mapping>
-
+-->
   <!-- 欢迎页 -->
-  <welcome-file-list>
-    <welcome-file>admin/index.jsp</welcome-file>
-  </welcome-file-list>
+  <!--<welcome-file-list>-->
+    <!--<welcome-file>admin/index.jsp</welcome-file>-->
+  <!--</welcome-file-list>-->
 
 </web-app>
