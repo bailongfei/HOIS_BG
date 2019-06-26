@@ -25,9 +25,11 @@ public interface UserSoap {
      * @param
      * @return
      */
+    //登录工作站接口
     @WebMethod(operationName = "userLogin",action = "http://USService.xh.com/userLogin")
     @WebResult(name = "loginResult",targetNamespace = "http://USService.xh.com")
     public String login(@WebParam(name = "WS_ID") int WS_ID,@WebParam(name = "Staff_Code") String Staff_Code,@WebParam(name = "Staff_Pass") String Staff_Pass,@WebParam(name = "SrvGroup_ID") int SrvGroup_ID);
+
 
 
 }
