@@ -5,9 +5,7 @@ import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 
-/**
- * create by 李龙飞 on 2019/6/20
- */
+
 
 @WebService(name = "USService",targetNamespace="http://USService.xh.com")
 public interface UserSoap {
