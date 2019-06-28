@@ -10,9 +10,7 @@ import javax.jws.WebService;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/**
- * create by 李龙飞 on 2019/6/24
- */
+
 @WebService(name = "USService",targetNamespace = "http://USService.xh.com",endpointInterface = "com.xh.soap.UserSoap",serviceName = "USServiceName",portName = "USPortName")
 public class UserSoapImpl implements UserSoap {
 

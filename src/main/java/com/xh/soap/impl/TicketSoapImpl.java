@@ -10,9 +10,7 @@ import javax.jws.WebService;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/**
- * create by 李龙飞 on 2019/6/27
- */
+
 @WebService(name = "TicketService",targetNamespace = "http://TicketService.xh.com",endpointInterface = "com.xh.soap.TicketSoap",serviceName = "TicketServiceName",portName = "TicketServicePort")
 public class TicketSoapImpl implements TicketSoap {
 

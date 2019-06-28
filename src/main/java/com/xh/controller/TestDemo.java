@@ -4,9 +4,7 @@ import com.xh.soap.impl.UserSoapImpl;
 
 import javax.xml.ws.Endpoint;
 
-/**
- * create by 李龙飞 on 2019/6/24
- */
+
 public class TestDemo {
 
     public static void main(String[] args) {

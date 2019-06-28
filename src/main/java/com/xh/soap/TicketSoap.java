@@ -5,9 +5,7 @@ import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 
-/**
- * create by 李龙飞 on 2019/6/27
- */
+
 @WebService(name = "TicketService",targetNamespace = "http://TicketService.xh.com")
 public interface TicketSoap {
 

@@ -2,9 +2,7 @@ package com.xh.vo;
 
 import java.util.List;
 
-/**
- * create by 李龙飞 on 2019/6/21
- */
+
 public class UserVo {
 
     private int Staff_ID;       //编号

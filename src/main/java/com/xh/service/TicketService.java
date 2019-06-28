@@ -6,9 +6,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.Map;
 
-/**
- * create by 李龙飞 on 2019/6/28
- */
+
 @Service
 public class TicketService{
 
