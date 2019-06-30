@@ -9,7 +9,7 @@
 	      statementType="CALLABLE"：调用存储过程，默认是PREPARED
 	-->
 	<select id="login" parameterType="map" resultType="java.util.Map"  statementType="CALLABLE" >
-		exec	SP_WS_Open
+		exec	SP_WS_OpenUser
 		 	#{WS_ID,mode=IN,jdbcType=NUMERIC},
 		 	#{Staff_Code,mode=IN,jdbcType=VARCHAR},
 		  	#{Staff_Pass,mode=IN,jdbcType=VARCHAR}

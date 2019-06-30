@@ -1,0 +1,2 @@
+[INFO][2019-06-30 17:04|:07][org.apache.cxf.wsdl.service.factory.ReflectionServiceFactoryBean]Creating Service {http://USService.xh.com}USServiceName from class com.xh.soap.UserSoap
+[ERROR][2019-06-30 17:04|:08][org.apache.cxf.transport.http.HTTPTransportFactory]Cannot find any registered HttpDestinationFactory from the Bus.
