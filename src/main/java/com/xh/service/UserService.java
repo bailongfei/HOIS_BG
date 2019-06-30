@@ -4,7 +4,7 @@ import com.xh.dao.UserDao;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
+
 import java.util.Map;
 
 
@@ -15,7 +15,6 @@ public class UserService {
     UserDao userDao;
 
     public  Map<String,Object> login(Map<String,Object> map){
-
        return userDao.login(map);
     }
 

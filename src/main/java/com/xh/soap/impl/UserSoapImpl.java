@@ -19,23 +19,22 @@ public class UserSoapImpl implements UserSoap {
 
     @Override
     @ResponseBody
-    public String login(int WS_ID, String Staff_Code, String Staff_Pass, int SrvGroup_ID) {
+    public String login(int WS_ID, String Staff_Code, String Staff_Pass) {
 
         Map<String,Object> map = new LinkedHashMap<>();
         map.put("WS_ID",WS_ID);
         map.put("Staff_Code",Staff_Code);
         map.put("Staff_Pass",Staff_Pass);
-        map.put("SrvGroup_ID",SrvGroup_ID);
 
         Map<String,Object> login = userService.login(map);
 //        System.out.println(login);
-
+/*
         JSONObject object = new JSONObject();
 
         for (String lg : login.keySet()) {
             object.put("result",lg);
             object.put("resultInfo",login.get(lg));
-        }
+        }*/
 
         return JSONObject.toJSONString(login);
     }

@@ -10,12 +10,15 @@
 
     <!-- 引入cxf的一些核心配置 -->
     <import resource="classpath:META-INF/cxf/cxf.xml" />
-    <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
 
     <bean id="userSoap" class="com.xh.soap.impl.UserSoapImpl"/>
+    <bean id="ticketSoap" class="com.xh.soap.impl.TicketSoapImpl"/>
 
     <!-- implementor 指定 WebService 实现类， address 指定访问地址-->
-    <jaxws:endpoint id="service" implementor="#userSoap" address="/USService/soap" />
+    <jaxws:endpoint id="userSoapService" implementor="#userSoap" address="/USService/soap" />
+    <jaxws:endpoint id="ticketSoapService" implementor="#ticketSoap" address="/TicketService/soap" ></jaxws:endpoint>
+
 
     <context:component-scan base-package="com.xh"></context:component-scan>
     <bean id="propertyCongfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">

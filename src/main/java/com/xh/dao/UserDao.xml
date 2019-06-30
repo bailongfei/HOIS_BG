@@ -5,21 +5,14 @@
 <mapper namespace="com.xh.dao.UserDao">
 
 	<!-- 登录 -->
-	<!--<select id="login" resultType="int">-->
-		<!--<![CDATA[-->
-		<!--select count(*) from Basic_StaffInfo-->
-		<!--where Staff_LoginName=#{Staff_LoginName} and Staff_Pass=#{Staff_Pass};-->
-		<!--]]>-->
-	<!--</select>-->
 	<!--  public List<int,String> getEmpsByPage();
 	      statementType="CALLABLE"：调用存储过程，默认是PREPARED
 	-->
 	<select id="login" parameterType="map" resultType="java.util.Map"  statementType="CALLABLE" >
-		exec	SP_WS_Open
+		exec	SP_WS_OpenUser
 		 	#{WS_ID,mode=IN,jdbcType=NUMERIC},
 		 	#{Staff_Code,mode=IN,jdbcType=VARCHAR},
-		  	#{Staff_Pass,mode=IN,jdbcType=VARCHAR},
-			#{SrvGroup_ID,mode=IN,jdbcType=NUMERIC}
+		  	#{Staff_Pass,mode=IN,jdbcType=VARCHAR}
 
 	</select>
 
