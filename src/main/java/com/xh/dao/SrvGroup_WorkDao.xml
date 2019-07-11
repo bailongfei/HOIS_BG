@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xh.dao.SrvGroup_WorkDao">
+
+	<select id="listAll" resultType="com.xh.vo.SrvGroup_WorkVo" >
+		<![CDATA[
+			select q.Queue_No,s.SrvGroup_Name,q.RegDate,st.StatusTypeName from Basic_Queue_Work q
+			inner join Basic_SrvGroup s on s.SrvGroup_ID=q.SrvGroup_ID
+			inner join StatusType_Work st on st.StatusTypeId=q.Status_Type
+
+
+		]]>
+
+	</select>
+
+</mapper>

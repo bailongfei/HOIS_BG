@@ -1,13 +1,15 @@
 package com.xh.soap.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.xh.service.UserService;
+import com.xh.service.*;
 import com.xh.soap.UserSoap;
+import com.xh.vo.SrvGroup_WorkVo;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.jws.WebService;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -16,6 +18,38 @@ public class UserSoapImpl implements UserSoap {
 
     @Resource
     UserService userService;
+    @Resource
+    SrvGroup_WorkService srvGroup_workService;
+    @Resource
+    CallArriveService callArriveService;
+    @Resource
+    CallConfirmService callConfirmService;
+    @Resource
+    Call_NormalService callNormalService;
+    @Resource
+    CallRepeatService callRepeatService;
+
+    @Override
+    public int callConfirm(int WS_ID, int Data_ID) {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("WS_ID",WS_ID);
+        map.put("Data_ID",Data_ID);
+
+        int result = callConfirmService.callConfirm(map);
+
+        return result;
+    }
+
+    @Override
+    public int callArrive(int WS_ID, int Data_ID) {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("WS_ID",WS_ID);
+        map.put("Data_ID",Data_ID);
+
+        int result = callArriveService.callArrive(map);
+
+        return result;
+    }
 
     @Override
     @ResponseBody
@@ -37,5 +71,50 @@ public class UserSoapImpl implements UserSoap {
         }*/
 
         return JSONObject.toJSONString(login);
+    }
+
+    //读取工作站数据
+    @Override
+    public String listAll() {
+
+        List<SrvGroup_WorkVo> workList = srvGroup_workService.listAll();
+
+        for (int i=0;i<workList.size();i++){
+
+            System.out.println("List集合值："+workList.get(i));
+        }
+
+        return JSONObject.toJSONString(workList);
+    }
+
+    @Override
+    public String callNormal(int WS_ID, int Pre_DataID) {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("WS_ID",WS_ID);
+        map.put("Pre_DataID",Pre_DataID);
+
+        Map<String,Object> normalMap = callNormalService.callNormal(map);
+
+        return JSONObject.toJSONString(normalMap);
+    }
+
+    @Override
+    public int callRepeat(int WS_ID, int Data_ID) {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("WS_ID",WS_ID);
+        map.put("Data_ID",Data_ID);
+
+        return callRepeatService.callRepeat(map);
+    }
+
+    @Override
+    @ResponseBody
+    public String openControl(int WS_ID, int WS_Display_ID, int WS_Display_Type, String WS_Scroll_Txt,
+                              String WS_No, String WS_Name, String WS_Display_Name, String Staff_Code,
+                              String Staff_Name, int Staff_Level, String Staff_Title, String Staff_Pic)
+    {
+
+
+        return null;
     }
 }
