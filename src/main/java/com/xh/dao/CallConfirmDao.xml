@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xh.dao.CallConfirmDao">
+
+	<select id="callConfirm" parameterType="map" resultType="int"  statementType="CALLABLE" >
+		exec SP_WS_Call_Confirm
+			#{WS_ID,mode=IN,jdbcType=NUMERIC},
+			#{Data_ID,mode=IN,jdbcType=NUMERIC}
+
+	</select>
+
+
+</mapper>

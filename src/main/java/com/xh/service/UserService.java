@@ -19,4 +19,9 @@ public class UserService {
        return userDao.login(map);
     }
 
+    public Map<String,Object> openControl(Map<String,Object> map){
+
+        return userDao.openControl(map);
+    }
+
 }

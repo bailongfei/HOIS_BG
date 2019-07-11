@@ -9,10 +9,28 @@
 	      statementType="CALLABLE"：调用存储过程，默认是PREPARED
 	-->
 	<select id="login" parameterType="map" resultType="java.util.Map"  statementType="CALLABLE" >
-		exec	SP_WS_Open
+		exec	SP_WS_Open1
 		 	#{WS_ID,mode=IN,jdbcType=NUMERIC},
 		 	#{Staff_Code,mode=IN,jdbcType=VARCHAR},
 		  	#{Staff_Pass,mode=IN,jdbcType=VARCHAR}
+
+	</select>
+
+	<!-- 打开工作站时，插入数据 -->
+	<select id="openControl">
+		exec 	SP_Cmd_WS_Open
+			#{WS_ID,mode=IN,jdbcType=NUMERIC},
+			#{WS_Display_ID,mode=IN,jdbcType=NUMERIC},
+			#{WS_Display_Type,mode=IN,jdbcType=NUMERIC},
+			#{WS_Scroll_Txt,mode=IN,jdbcType=VARCHAR},
+			#{WS_No,mode=IN,jdbcType=VARCHAR},
+			#{WS_Name,mode=IN,jdbcType=VARCHAR},
+			#{WS_Display_Name,mode=IN,jdbcType=VARCHAR},
+			#{Staff_Code,mode=IN,jdbcType=VARCHAR},
+			#{Staff_Name,mode=IN,jdbcType=VARCHAR},
+			#{Staff_Level,mode=IN,jdbcType=NUMERIC},
+			#{Staff_Title,mode=IN,jdbcType=VARCHAR},
+			#{Staff_Pic,mode=IN,jdbcType=VARCHAR}
 
 	</select>
 

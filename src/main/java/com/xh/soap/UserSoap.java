@@ -1,13 +1,9 @@
 package com.xh.soap;
 
-import com.xh.vo.SrvGroup_WorkVo;
-
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
-import java.util.List;
-import java.util.Map;
 
 
 @WebService(name = "USService",targetNamespace="http://USService.xh.com")
@@ -40,6 +36,23 @@ public interface UserSoap {
     @WebResult(name = "listAllResult",targetNamespace = "http://USService.xh.com")
     public String listAll();
 
+    //确认到达
+    @WebMethod(operationName = "callConfirm",action = "http://USService.xh.com/callConfirm")
+    @WebResult(name = "confirmResult",targetNamespace = "http://USService.xh.com")
+    public int callConfirm(
+            @WebParam(name = "WS_ID") int WS_ID,
+            @WebParam(name = "Data_ID") int Data_ID
+
+    );
+
+    //过号
+    @WebMethod(operationName = "callArrive",action = "http://USService.xh.com/callArrive")
+    @WebResult(name = "arriveResult",targetNamespace = "http://USService.xh.com")
+    public int callArrive(
+            @WebParam(name = "WS_ID") int WS_ID,
+            @WebParam(name = "Data_ID") int Data_ID
+    );
+
     //下一位
     @WebMethod(operationName = "callNormal",action = "http://USService.xh.com/callNormal")
     @WebResult(name = "callNormalResult",targetNamespace = "http://USService.xh.com")
@@ -48,10 +61,10 @@ public interface UserSoap {
             @WebParam(name = "Pre_DataID") int Pre_DataID
     );
 
-    //过号
-    @WebMethod(operationName = "callArrive",action = "http://USService.xh.com/callArrive")
-    @WebResult(name = "arriveResult",targetNamespace = "http://USService.xh.com")
-    public String callArrive(
+    //重呼
+    @WebMethod(operationName = "callRepeat",action = "http://USService.xh.com/callRepeat")
+    @WebResult(name = "callRepeatResult",targetNamespace = "http://USService.xh.com")
+    public int callRepeat(
             @WebParam(name = "WS_ID") int WS_ID,
             @WebParam(name = "Data_ID") int Data_ID
     );
