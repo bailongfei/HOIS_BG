@@ -28,6 +28,8 @@ public class UserSoapImpl implements UserSoap {
     Call_NormalService callNormalService;
     @Resource
     CallRepeatService callRepeatService;
+    @Resource
+    CallTurnService callTurnService;
 
     @Override
     public int callConfirm(int WS_ID, int Data_ID) {
@@ -105,6 +107,21 @@ public class UserSoapImpl implements UserSoap {
         map.put("Data_ID",Data_ID);
 
         return callRepeatService.callRepeat(map);
+    }
+
+    @Override
+    public String callTurn(int queueNo) {
+
+        String queue_NO = callTurnService.callTurn(queueNo);
+
+        return JSONObject.toJSONString(queue_NO);
+    }
+
+    @Override
+    public String callClose(int WS_ID) {
+        Map<String,Object> map = userService.callClose(WS_ID);
+
+        return JSONObject.toJSONString(map);
     }
 
     @Override

@@ -16,6 +16,12 @@
 
 	</select>
 
+	<!-- 退出登录 -->
+	<select id="callClose" parameterType="int" resultType="java.util.Map" statementType="CALLABLE">
+		exec SP_WS_Close
+			#{WS_ID,mode=IN,jdbcType=NUMERIC}
+	</select>
+
 	<!-- 打开工作站时，插入数据 -->
 	<select id="openControl">
 		exec 	SP_Cmd_WS_Open

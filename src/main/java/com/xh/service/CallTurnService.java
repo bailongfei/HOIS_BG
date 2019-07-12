@@ -11,5 +11,9 @@ public class CallTurnService {
     @Resource
     CallTurnDao callTurnDao;
 
+    public String callTurn(int queueNo){
+
+        return callTurnDao.callTurn(queueNo);
+    }
 
 }
