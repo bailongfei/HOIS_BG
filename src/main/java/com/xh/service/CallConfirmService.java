@@ -12,7 +12,7 @@ public class CallConfirmService {
     @Resource
     CallConfirmDao callConfirmDao;
 
-    public int callConfirm(Map<String,Object> map){
+    public Map<String, Object> callConfirm(Map<String,Object> map){
 
         return callConfirmDao.callConfirm(map);
     }
