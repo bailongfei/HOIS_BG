@@ -80,9 +80,9 @@ public interface UserSoap {
     //重呼
     @WebMethod(operationName = "callRepeat",action = "http://USService.xh.com/callRepeat")
     @WebResult(name = "callRepeatResult",targetNamespace = "http://USService.xh.com")
-    public int callRepeat(
+    public String  callRepeat(
             @WebParam(name = "WS_ID") int WS_ID,
-            @WebParam(name = "Data_ID") int Data_ID
+            @WebParam(name = "Queue_No") int Queue_No
     );
 
     //显示

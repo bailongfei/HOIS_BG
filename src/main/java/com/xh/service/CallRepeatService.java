@@ -12,7 +12,7 @@ public class CallRepeatService {
     @Resource
     CallRepeatDao callRepeatDao;
 
-    public int callRepeat(Map<String,Object> map){
+    public Map<String, Object> callRepeat(Map<String,Object> map){
 
         return callRepeatDao.callRepeat(map);
     }
