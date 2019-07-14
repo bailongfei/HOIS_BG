@@ -47,18 +47,18 @@ public interface UserSoap {
     //确认到达
     @WebMethod(operationName = "callConfirm",action = "http://USService.xh.com/callConfirm")
     @WebResult(name = "confirmResult",targetNamespace = "http://USService.xh.com")
-    public int callConfirm(
+    public String callConfirm(
             @WebParam(name = "WS_ID") int WS_ID,
-            @WebParam(name = "Data_ID") int Data_ID
+            @WebParam(name = "Queue_No") int Queue_No
 
     );
 
     //过号
     @WebMethod(operationName = "callArrive",action = "http://USService.xh.com/callArrive")
     @WebResult(name = "arriveResult",targetNamespace = "http://USService.xh.com")
-    public int callArrive(
+    public String callArrive(
             @WebParam(name = "WS_ID") int WS_ID,
-            @WebParam(name = "Data_ID") int Data_ID
+            @WebParam(name = "Queue_No") int Queue_No
     );
 
     //下一位

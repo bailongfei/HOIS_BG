@@ -11,7 +11,7 @@ public class CallArriveService {
     @Resource
     CallArriveDao callArriveDao;
 
-    public int callArrive(Map<String,Object> map){
+    public Map<String, Object> callArrive(Map<String,Object> map){
 
         return callArriveDao.callArrive(map);
     }

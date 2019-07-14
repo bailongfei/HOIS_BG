@@ -32,25 +32,25 @@ public class UserSoapImpl implements UserSoap {
     CallTurnService callTurnService;
 
     @Override
-    public int callConfirm(int WS_ID, int Data_ID) {
+    public String callConfirm(int WS_ID, int Queue_No) {
         Map<String,Object> map = new LinkedHashMap<>();
         map.put("WS_ID",WS_ID);
-        map.put("Data_ID",Data_ID);
+        map.put("Queue_No",Queue_No);
 
-        int result = callConfirmService.callConfirm(map);
+        Map<String,Object> confirmMap = callConfirmService.callConfirm(map);
 
-        return result;
+        return JSONObject.toJSONString(confirmMap);
     }
 
     @Override
-    public int callArrive(int WS_ID, int Data_ID) {
+    public String callArrive(int WS_ID, int Queue_No) {
         Map<String,Object> map = new LinkedHashMap<>();
         map.put("WS_ID",WS_ID);
-        map.put("Data_ID",Data_ID);
+        map.put("Queue_No",Queue_No);
 
-        int result = callArriveService.callArrive(map);
+        Map<String,Object> arriveMap = callArriveService.callArrive(map);
 
-        return result;
+        return JSONObject.toJSONString(arriveMap);
     }
 
     @Override

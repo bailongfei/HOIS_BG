@@ -4,6 +4,6 @@ import java.util.Map;
 
 public interface CallArriveDao {
 
-    int callArrive(Map<String,Object> map);
+    Map<String,Object> callArrive(Map<String,Object> map);
 
 }

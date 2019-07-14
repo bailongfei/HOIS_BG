@@ -5,10 +5,10 @@
 <mapper namespace="com.xh.dao.CallArriveDao">
 
 
-	<select id="callArrive" parameterType="map" resultType="int"  statementType="CALLABLE" >
+	<select id="callArrive" parameterType="map" resultType="java.util.Map"  statementType="CALLABLE" >
 		exec SP_WS_Call_Arrive
 			#{WS_ID,mode=IN,jdbcType=NUMERIC},
-			#{Data_ID,mode=IN,jdbcType=NUMERIC}
+			#{Queue_No,mode=IN,jdbcType=NUMERIC}
 
 	</select>
 
