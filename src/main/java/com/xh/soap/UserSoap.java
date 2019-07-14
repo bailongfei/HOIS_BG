@@ -4,6 +4,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
+import java.util.Map;
 
 
 @WebService(name = "USService",targetNamespace="http://USService.xh.com")
@@ -29,6 +30,13 @@ public interface UserSoap {
             @WebParam(name = "WS_ID") int WS_ID,
             @WebParam(name = "Staff_Code") String Staff_Code,
             @WebParam(name = "Staff_Pass") String Staff_Pass
+    );
+
+    //退出工作站接口
+    @WebMethod(operationName = "callClose",action = "http://USService.xh.com/callClose")
+    @WebResult(name ="ccResult",targetNamespace = "http://USService.xh.com")
+    public String callClose(
+            @WebParam(name = "WS_ID") int WS_ID
     );
 
     //打开工作站时，读取数据
@@ -58,7 +66,15 @@ public interface UserSoap {
     @WebResult(name = "callNormalResult",targetNamespace = "http://USService.xh.com")
     public String callNormal(
             @WebParam(name = "WS_ID") int WS_ID,
-            @WebParam(name = "Pre_DataID") int Pre_DataID
+            @WebParam(name = "Queue_No") int Queue_No
+    );
+
+    //就诊结束
+    @WebMethod(operationName = "closeWork",action = "http://USService.xh.com/closeWork")
+    @WebResult(name = "closeWorkResult",targetNamespace = "http://USService.xh.com")
+    public String closeWork(
+            @WebParam(name = "WS_ID") int WS_ID,
+            @WebParam(name = "Queue_NO") int Queue_NO
     );
 
     //重呼
@@ -67,6 +83,13 @@ public interface UserSoap {
     public int callRepeat(
             @WebParam(name = "WS_ID") int WS_ID,
             @WebParam(name = "Data_ID") int Data_ID
+    );
+
+    //显示
+    @WebMethod(operationName = "callTurn",action = "http://USService.xh.com/callTurn")
+    @WebResult(name = "callTurnResult",targetNamespace = "http://USService.xh.com")
+    public String callTurn(
+            @WebParam(name = "queueNo") int queueNo
     );
 
     @WebMethod(operationName = "openControl",action = "http://USService.xh.com/openControl")

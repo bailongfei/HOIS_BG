@@ -23,4 +23,9 @@ public class UserService {
         return userDao.openControl(map);
     }
 
+    public Map<String,Object> callClose(int WS_ID){
+
+        return userDao.callClose(WS_ID);
+    }
+
 }

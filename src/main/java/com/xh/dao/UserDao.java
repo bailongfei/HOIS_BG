@@ -1,9 +1,6 @@
 package com.xh.dao;
 
-
-import java.util.List;
 import java.util.Map;
-
 
 public interface UserDao {
 
@@ -13,5 +10,8 @@ public interface UserDao {
 
     //打开工作站时，插入数据
     Map<String,Object> openControl(Map<String,Object> map);
+
+    //退出SP_WS_Close
+    Map<String,Object> callClose(int WS_ID);
 
 }

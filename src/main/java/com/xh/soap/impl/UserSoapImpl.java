@@ -28,6 +28,8 @@ public class UserSoapImpl implements UserSoap {
     Call_NormalService callNormalService;
     @Resource
     CallRepeatService callRepeatService;
+    @Resource
+    CallTurnService callTurnService;
 
     @Override
     public int callConfirm(int WS_ID, int Data_ID) {
@@ -88,14 +90,25 @@ public class UserSoapImpl implements UserSoap {
     }
 
     @Override
-    public String callNormal(int WS_ID, int Pre_DataID) {
+    public String callNormal(int WS_ID, int Queue_No) {
         Map<String,Object> map = new LinkedHashMap<>();
         map.put("WS_ID",WS_ID);
-        map.put("Pre_DataID",Pre_DataID);
+        map.put("Queue_No",Queue_No);
 
         Map<String,Object> normalMap = callNormalService.callNormal(map);
 
         return JSONObject.toJSONString(normalMap);
+    }
+
+    @Override
+    public String closeWork(int WS_ID, int Queue_NO) {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("WS_ID",WS_ID);
+        map.put("Queue_No",Queue_NO);
+
+        Map<String,Object> workMap = callNormalService.closeWork(map);
+
+        return JSONObject.toJSONString(workMap);
     }
 
     @Override
@@ -105,6 +118,21 @@ public class UserSoapImpl implements UserSoap {
         map.put("Data_ID",Data_ID);
 
         return callRepeatService.callRepeat(map);
+    }
+
+    @Override
+    public String callTurn(int queueNo) {
+
+        String queue_NO = callTurnService.callTurn(queueNo);
+
+        return JSONObject.toJSONString(queue_NO);
+    }
+
+    @Override
+    public String callClose(int WS_ID) {
+        Map<String,Object> map = userService.callClose(WS_ID);
+
+        return JSONObject.toJSONString(map);
     }
 
     @Override
