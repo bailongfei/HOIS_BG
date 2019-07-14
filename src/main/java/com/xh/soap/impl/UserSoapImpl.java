@@ -90,14 +90,25 @@ public class UserSoapImpl implements UserSoap {
     }
 
     @Override
-    public String callNormal(int WS_ID, int Pre_DataID) {
+    public String callNormal(int WS_ID, int Queue_No) {
         Map<String,Object> map = new LinkedHashMap<>();
         map.put("WS_ID",WS_ID);
-        map.put("Pre_DataID",Pre_DataID);
+        map.put("Queue_No",Queue_No);
 
         Map<String,Object> normalMap = callNormalService.callNormal(map);
 
         return JSONObject.toJSONString(normalMap);
+    }
+
+    @Override
+    public String closeWork(int WS_ID, int Queue_NO) {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("WS_ID",WS_ID);
+        map.put("Queue_No",Queue_NO);
+
+        Map<String,Object> workMap = callNormalService.closeWork(map);
+
+        return JSONObject.toJSONString(workMap);
     }
 
     @Override

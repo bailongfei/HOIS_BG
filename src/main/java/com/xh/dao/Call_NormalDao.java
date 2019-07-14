@@ -6,4 +6,6 @@ public interface Call_NormalDao {
 
     Map<String,Object> callNormal(Map<String,Object> map);
 
+    Map<String,Object> closeWork(Map<String,Object> map);
+
 }

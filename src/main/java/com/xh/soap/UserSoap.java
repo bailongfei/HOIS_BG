@@ -66,7 +66,15 @@ public interface UserSoap {
     @WebResult(name = "callNormalResult",targetNamespace = "http://USService.xh.com")
     public String callNormal(
             @WebParam(name = "WS_ID") int WS_ID,
-            @WebParam(name = "Pre_DataID") int Pre_DataID
+            @WebParam(name = "Queue_No") int Queue_No
+    );
+
+    //就诊结束
+    @WebMethod(operationName = "closeWork",action = "http://USService.xh.com/closeWork")
+    @WebResult(name = "closeWorkResult",targetNamespace = "http://USService.xh.com")
+    public String closeWork(
+            @WebParam(name = "WS_ID") int WS_ID,
+            @WebParam(name = "Queue_NO") int Queue_NO
     );
 
     //重呼

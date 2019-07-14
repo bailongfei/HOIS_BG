@@ -17,4 +17,9 @@ public class Call_NormalService {
         return call_normalDao.callNormal(map);
     }
 
+    public Map<String,Object> closeWork(Map<String,Object> map){
+
+        return call_normalDao.closeWork(map);
+    }
+
 }
