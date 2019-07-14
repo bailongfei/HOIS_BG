@@ -112,12 +112,14 @@ public class UserSoapImpl implements UserSoap {
     }
 
     @Override
-    public int callRepeat(int WS_ID, int Data_ID) {
+    public String callRepeat(int WS_ID, int Queue_No) {
         Map<String,Object> map = new LinkedHashMap<>();
         map.put("WS_ID",WS_ID);
-        map.put("Data_ID",Data_ID);
+        map.put("Queue_No",Queue_No);
 
-        return callRepeatService.callRepeat(map);
+        Map<String,Object> repeatMap = callRepeatService.callRepeat(map);
+
+        return JSONObject.toJSONString(repeatMap);
     }
 
     @Override
