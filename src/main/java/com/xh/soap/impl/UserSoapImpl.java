@@ -112,6 +112,18 @@ public class UserSoapImpl implements UserSoap {
     }
 
     @Override
+    public String callDelay(int WS_ID, int Queue_No, int Delay_Count) {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("WS_ID",WS_ID);
+        map.put("Queue_No",Queue_No);
+        map.put("Delay_Count",Delay_Count);
+
+        Map<String,Object> delayMap = callNormalService.callDelay(map);
+
+        return JSONObject.toJSONString(delayMap);
+    }
+
+    @Override
     public String callRepeat(int WS_ID, int Queue_No) {
         Map<String,Object> map = new LinkedHashMap<>();
         map.put("WS_ID",WS_ID);

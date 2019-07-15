@@ -9,7 +9,7 @@
 			select q.Queue_No,s.SrvGroup_Name,q.RegDate,st.StatusTypeName from Basic_Queue_Work q
 			inner join Basic_SrvGroup s on s.SrvGroup_ID=q.SrvGroup_ID
 			inner join StatusType_Work st on st.StatusTypeId=q.Status_Type
-
+			order by Queue_Pos, Queue_No asc
 
 		]]>
 
