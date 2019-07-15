@@ -69,6 +69,16 @@ public interface UserSoap {
             @WebParam(name = "Queue_No") int Queue_No
     );
 
+    //延后
+    @WebMethod(operationName = "callDelay",action = "http://USService.xh.com/callDelay")
+    @WebResult(name = "callDelayResult",targetNamespace = "http://USService.xh.com")
+    public String callDelay(
+            @WebParam(name = "WS_ID") int WS_ID,
+            @WebParam(name = "Queue_No") int Queue_No,
+            @WebParam(name = "Delay_Count") int Delay_Count
+
+    );
+
     //就诊结束
     @WebMethod(operationName = "closeWork",action = "http://USService.xh.com/closeWork")
     @WebResult(name = "closeWorkResult",targetNamespace = "http://USService.xh.com")

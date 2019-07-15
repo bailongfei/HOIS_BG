@@ -22,4 +22,9 @@ public class Call_NormalService {
         return call_normalDao.closeWork(map);
     }
 
+    public Map<String,Object> callDelay(Map<String,Object> map){
+
+        return call_normalDao.callDelay(map);
+    }
+
 }

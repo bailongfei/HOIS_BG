@@ -20,4 +20,13 @@
 
 	</select>
 
+	<!-- 延后 -->
+	<select id="callDelay"  parameterType="map" resultType="java.util.Map"  statementType="CALLABLE" >
+		exec SP_WS_Call_Delay
+		#{WS_ID,mode=IN,jdbcType=NUMERIC},
+		#{Queue_No,mode=IN,jdbcType=NUMERIC}
+		#{Delay_Count,mode=IN,jdbcType=NUMERIC}
+
+	</select>
+
 </mapper>
