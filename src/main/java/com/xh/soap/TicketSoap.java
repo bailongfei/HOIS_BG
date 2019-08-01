@@ -21,6 +21,13 @@ public interface TicketSoap {
             @WebParam(name = "Customer_No") String Customer_No,
             @WebParam(name = "Customer_Name") String Customer_Name,
             @WebParam(name = "Customer_Type") int Customer_Type
+
     );
+
+    //读取队列数据
+    @WebMethod(operationName = "read_Queue",action = "http://TicketService.xh.com/read_Queue")
+    @WebResult(name = "queueResult",targetNamespace = "http://TicketService.xh.com")
+    public String readQueue();
+
 
 }

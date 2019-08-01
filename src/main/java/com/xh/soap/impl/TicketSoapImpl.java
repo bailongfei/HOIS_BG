@@ -42,4 +42,9 @@ public class TicketSoapImpl implements TicketSoap {
         return JSONObject.toJSONString(collectTicket);
     }
 
+    @Override
+    public String readQueue() {
+
+        return ticketService.readQueue();
+    }
 }
