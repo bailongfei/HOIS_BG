@@ -14,7 +14,7 @@ public interface TicketSoap {
     @WebResult(name = "ticketResult",targetNamespace = "http://TicketService.xh.com")
     public String ticket(
             @WebParam(name = "Site_ID") int Site_ID,
-            @WebParam(name = "SrvGroup_ID") int SrvGroup_ID,
+            @WebParam(name = "SrvGroup_ID") int SrvGroup_ID,//队列
             @WebParam(name = "SrvCode_ID") int SrvCode_ID,
             @WebParam(name = "Appoint_Time") String Appoint_Time,
             @WebParam(name = "Customer_ID") String Customer_ID,

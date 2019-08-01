@@ -40,6 +40,12 @@
     </properties>
 
     <dependencies>
+        <!--初始化文件读取Ini-->
+        <dependency>
+            <groupId>org.ini4j</groupId>
+            <artifactId>ini4j</artifactId>
+            <version>0.5.4</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
         <!-- job-quartz定时任务JAR包  -->
         <dependency>
