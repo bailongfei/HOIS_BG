@@ -20,4 +20,13 @@
 
 	</select>
 
+	<!-- 取票队列 -->
+	<select id="readQueue" resultType="com.xh.vo.QueueVo">
+		<![CDATA[
+            select SrvGroup_ID,SrvGroup_Name,SrvGroup_Code,SrvGroup_Start_Num,SrvGroup_End_Num,SrvGroup_Ticket_ID from Basic_SrvGroup;
+
+        ]]>
+
+	</select>
+
 </mapper>
