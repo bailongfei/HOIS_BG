@@ -14,11 +14,11 @@
 
     <bean id="userSoap" class="com.xh.soap.impl.UserSoapImpl"/>
     <bean id="ticketSoap" class="com.xh.soap.impl.TicketSoapImpl"/>
-
+    <bean id="SrvGroupSoap" class="com.xh.soap.impl.QueueSrvGroupSoapImpl"  />
     <!-- implementor 指定 WebService 实现类， address 指定访问地址-->
     <jaxws:endpoint id="userSoapService" implementor="#userSoap" address="/USService/soap" />
     <jaxws:endpoint id="ticketSoapService" implementor="#ticketSoap" address="/TicketService/soap" ></jaxws:endpoint>
-
+    <jaxws:endpoint id="SrvGroupService" implementor="#SrvGroupSoap" address="/QueueService/soap"></jaxws:endpoint>
 
     <context:component-scan base-package="com.xh"></context:component-scan>
     <bean id="propertyCongfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
