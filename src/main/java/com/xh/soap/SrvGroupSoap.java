@@ -20,4 +20,8 @@ public interface SrvGroupSoap {
             @WebParam(name = "QueueNo") String QueueNo, //票号
             @WebParam(name = "StatusType") String StatusType //就诊状态
     );
+    //过号激活
+    @WebMethod(operationName = "queueAct",action = "http://queueService.xh.com/queueAct")
+    @WebResult(name = "queueActResult",targetNamespace = "http://queueService.xh.com")
+    public String QueueAct(@WebParam(name = "Data_ID")Integer Data_ID);
 }

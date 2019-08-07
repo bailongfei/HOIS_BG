@@ -16,4 +16,8 @@
        #{QueueNo,mode=IN,jdbcType=VARCHAR},
        #{StatusType,mode=IN,jdbcType=VARCHAR}
    </select>
+    <select id="QueueAct" parameterType="map" resultType="map" statementType="CALLABLE">
+        exec SP_MS_Queue_Act
+        #{Data_ID,mode=IN,jdbcType=NUMERIC}
+    </select>
 </mapper>
