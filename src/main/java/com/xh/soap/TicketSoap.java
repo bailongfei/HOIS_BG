@@ -14,13 +14,20 @@ public interface TicketSoap {
     @WebResult(name = "ticketResult",targetNamespace = "http://TicketService.xh.com")
     public String ticket(
             @WebParam(name = "Site_ID") int Site_ID,
-            @WebParam(name = "SrvGroup_ID") int SrvGroup_ID,
+            @WebParam(name = "SrvGroup_ID") int SrvGroup_ID,//队列
             @WebParam(name = "SrvCode_ID") int SrvCode_ID,
             @WebParam(name = "Appoint_Time") String Appoint_Time,
             @WebParam(name = "Customer_ID") String Customer_ID,
             @WebParam(name = "Customer_No") String Customer_No,
             @WebParam(name = "Customer_Name") String Customer_Name,
             @WebParam(name = "Customer_Type") int Customer_Type
+
     );
+
+    //读取队列数据
+    @WebMethod(operationName = "read_Queue",action = "http://TicketService.xh.com/read_Queue")
+    @WebResult(name = "queueResult",targetNamespace = "http://TicketService.xh.com")
+    public String readQueue();
+
 
 }

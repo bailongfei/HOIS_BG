@@ -1,13 +1,15 @@
 package com.xh.soap.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.xh.service.UserService;
+import com.xh.service.*;
 import com.xh.soap.UserSoap;
+import com.xh.vo.SrvGroup_WorkVo;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.jws.WebService;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -16,6 +18,40 @@ public class UserSoapImpl implements UserSoap {
 
     @Resource
     UserService userService;
+    @Resource
+    SrvGroup_WorkService srvGroup_workService;
+    @Resource
+    CallArriveService callArriveService;
+    @Resource
+    CallConfirmService callConfirmService;
+    @Resource
+    Call_NormalService callNormalService;
+    @Resource
+    CallRepeatService callRepeatService;
+    @Resource
+    CallTurnService callTurnService;
+
+    @Override
+    public String callConfirm(int WS_ID, int Queue_No) {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("WS_ID",WS_ID);
+        map.put("Queue_No",Queue_No);
+
+        Map<String,Object> confirmMap = callConfirmService.callConfirm(map);
+
+        return JSONObject.toJSONString(confirmMap);
+    }
+
+    @Override
+    public String callArrive(int WS_ID, int Queue_No) {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("WS_ID",WS_ID);
+        map.put("Queue_No",Queue_No);
+
+        Map<String,Object> arriveMap = callArriveService.callArrive(map);
+
+        return JSONObject.toJSONString(arriveMap);
+    }
 
     @Override
     @ResponseBody
@@ -37,5 +73,90 @@ public class UserSoapImpl implements UserSoap {
         }*/
 
         return JSONObject.toJSONString(login);
+    }
+
+    //读取工作站数据
+    @Override
+    public String listAll() {
+
+        List<SrvGroup_WorkVo> workList = srvGroup_workService.listAll();
+
+        for (int i=0;i<workList.size();i++){
+
+            System.out.println("List集合值："+workList.get(i));
+        }
+
+        return JSONObject.toJSONString(workList);
+    }
+
+    @Override
+    public String callNormal(int WS_ID, int Queue_No) {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("WS_ID",WS_ID);
+        map.put("Queue_No",Queue_No);
+
+        Map<String,Object> normalMap = callNormalService.callNormal(map);
+
+        return JSONObject.toJSONString(normalMap);
+    }
+
+    @Override
+    public String closeWork(int WS_ID, int Queue_NO) {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("WS_ID",WS_ID);
+        map.put("Queue_No",Queue_NO);
+
+        Map<String,Object> workMap = callNormalService.closeWork(map);
+
+        return JSONObject.toJSONString(workMap);
+    }
+
+    @Override
+    public String callDelay(int WS_ID, int Queue_No, int Delay_Count) {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("WS_ID",WS_ID);
+        map.put("Queue_No",Queue_No);
+        map.put("Delay_Count",Delay_Count);
+
+        Map<String,Object> delayMap = callNormalService.callDelay(map);
+
+        return JSONObject.toJSONString(delayMap);
+    }
+
+    @Override
+    public String callRepeat(int WS_ID, int Queue_No) {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("WS_ID",WS_ID);
+        map.put("Queue_No",Queue_No);
+
+        Map<String,Object> repeatMap = callRepeatService.callRepeat(map);
+
+        return JSONObject.toJSONString(repeatMap);
+    }
+
+    @Override
+    public String callTurn(int queueNo) {
+
+        String queue_NO = callTurnService.callTurn(queueNo);
+
+        return JSONObject.toJSONString(queue_NO);
+    }
+
+    @Override
+    public String callClose(int WS_ID) {
+        Map<String,Object> map = userService.callClose(WS_ID);
+
+        return JSONObject.toJSONString(map);
+    }
+
+    @Override
+    @ResponseBody
+    public String openControl(int WS_ID, int WS_Display_ID, int WS_Display_Type, String WS_Scroll_Txt,
+                              String WS_No, String WS_Name, String WS_Display_Name, String Staff_Code,
+                              String Staff_Name, int Staff_Level, String Staff_Title, String Staff_Pic)
+    {
+
+
+        return null;
     }
 }
