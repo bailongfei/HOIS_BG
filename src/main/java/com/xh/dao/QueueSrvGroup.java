@@ -7,4 +7,5 @@ public interface QueueSrvGroup {
     public List<Map<String,Object>> queueSrvGroup();
     public List<Map<String,Object>> queueByCondition(Map<String,Object> map);
     public Map<String,Object> QueueAct(Map<String,Object> map);
+    public Map<String,Object> QueueZG(Map<String,Object> map);
 }

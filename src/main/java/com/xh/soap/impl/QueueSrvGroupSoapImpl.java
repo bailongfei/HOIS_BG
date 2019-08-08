@@ -80,5 +80,25 @@ public class QueueSrvGroupSoapImpl implements SrvGroupSoap {
         return JSONObject.toJSONString(queueByCondition);
     }
 
+    @Override
+    public String QueueZG(Integer Data_ID) {
+        Map<String,Object> map1=new HashMap<>();
+        map1.put("Data_ID",Data_ID);
+        Map<String,Object> queueByCondition=new LinkedHashMap<>();
+        queueByCondition.put("result","0");
+        queueByCondition.put("resultInfo","服务调用失败!");
+        try {
+            Map<String, Object> maps =queueSrvGroup.QueueZG(map1);
+            queueByCondition.put("result","1");
+            queueByCondition.put("resultInfo","服务调用成功!");
+            queueByCondition.put("data",maps);
+        } catch (Exception e) {
+            e.printStackTrace();
+            queueByCondition.put("resultInfo","服务调用异常!\t"+e.getMessage());
+        }
+
+        return JSONObject.toJSONString(queueByCondition);
+    }
+
 
 }

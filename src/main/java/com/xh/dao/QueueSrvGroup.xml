@@ -28,10 +28,16 @@
               and   Status_Type=#{StatusType}
             </if>
         </where>
-       order by Data_ID asc
+       order by Customer_Type,Data_ID asc
    </select>
+    <!--过好激活-->
     <select id="QueueAct" parameterType="map" resultType="map" statementType="CALLABLE">
         exec SP_MS_Queue_Act
+        #{Data_ID,mode=IN,jdbcType=NUMERIC}
+    </select>
+    <!--客户照顾-->
+    <select id="QueueZG" parameterType="map" resultType="map">
+        exec SP_MS_Queue_ZG
         #{Data_ID,mode=IN,jdbcType=NUMERIC}
     </select>
 </mapper>

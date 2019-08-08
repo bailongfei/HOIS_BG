@@ -24,4 +24,9 @@ public interface SrvGroupSoap {
     @WebMethod(operationName = "queueAct",action = "http://queueService.xh.com/queueAct")
     @WebResult(name = "queueActResult",targetNamespace = "http://queueService.xh.com")
     public String QueueAct(@WebParam(name = "Data_ID")Integer Data_ID);
+
+    //客户照顾
+    @WebMethod(operationName = "queueZG",action = "http://queueService.xh.com/queueZG")
+    @WebResult(name = "queueZGResult",targetNamespace = "http://queueService.xh.com")
+    public String QueueZG(@WebParam(name = "Data_ID") Integer Data_ID);
 }
