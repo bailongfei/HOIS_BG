@@ -10,11 +10,25 @@
 
 	</select>
    <!--查询业务-->
-   <select id="queueByCondition" parameterType="map" resultType="map" statementType="CALLABLE">
-       exec Queue_WS
-       #{Customer,mode=IN,jdbcType=VARCHAR},
-       #{QueueNo,mode=IN,jdbcType=VARCHAR},
-       #{StatusType,mode=IN,jdbcType=VARCHAR}
+   <select id="queueByCondition" parameterType="map" resultType="map" >
+
+       select qw.Data_ID,qw.RegDate,qw.Queue_No,qw.Queue_Pos,qw.Customer_Name,qw.Customer_No,qw.Customer_ID,qw.Status_Type,qw.Customer_Type,tw.StatusTypeName,sg.SrvGroup_Name,ws.WS_ID,ws.WS_Name,sf.Staff_Code,sf.Staff_Name from Basic_Queue_Work qw
+		left join Basic_SrvGroup sg on qw.SrvGroup_ID=sg.SrvGroup_ID
+		left join Basic_WorkStation ws on qw.WS_ID=ws.WS_ID
+		left join Basic_StaffInfo sf on qw.Staff_ID=sf.Staff_ID
+		left join StatusType_Work tw on qw.Status_Type=tw.StatusTypeId
+		<where>
+            <if test="Customer!=null and Customer!=''">
+              and  Customer_ID=#{Customer}
+            </if>
+            <if test="QueueNo!=null and QueueNo!=''">
+              and  Queue_No=#{QueueNo}
+            </if>
+            <if test="StatusType!=null and StatusType!=''">
+              and   Status_Type=#{StatusType}
+            </if>
+        </where>
+       order by Data_ID asc
    </select>
     <select id="QueueAct" parameterType="map" resultType="map" statementType="CALLABLE">
         exec SP_MS_Queue_Act
