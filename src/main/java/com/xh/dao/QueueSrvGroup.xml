@@ -22,13 +22,16 @@
                 and  sg.SrvGroup_ID=#{SrvGroupID}
             </if>
             <if test="Customer!=null and Customer!=''">
-              and  Customer_ID=#{Customer}
+              and  qw.Customer_ID=#{Customer}
             </if>
             <if test="QueueNo!=null and QueueNo!=''">
-              and  Queue_No=#{QueueNo}
+              and  qw.Queue_No=#{QueueNo}
             </if>
             <if test="StatusType!=null and StatusType!=''">
-              and   Status_Type=#{StatusType}
+              and   qw.Status_Type=#{StatusType}
+            </if>
+            <if test="WSID!=null and WSID!=''">
+              and  qw.WS_ID=#{WSID}
             </if>
         </where>
        order by Customer_Type,Data_ID asc
@@ -42,5 +45,9 @@
     <select id="QueueZG" parameterType="map" resultType="map">
         exec SP_MS_Queue_ZG
         #{Data_ID,mode=IN,jdbcType=NUMERIC}
+    </select>
+    <!--查询工作站窗口-->
+    <select id="QueueWSID"  resultType="map">
+        select ws.*,wsw.Staff_ID,wsw.Staff_Code,wsw.WS_Status_Type,wsw.WS_Preiod_Work,wsw.DataID from Basic_WorkStation ws left join Basic_WorkStation_Work wsw on ws.WS_ID=wsw.WS_ID
     </select>
 </mapper>

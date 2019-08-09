@@ -19,7 +19,8 @@ public interface SrvGroupSoap {
             @WebParam(name="SrvGroupID") Integer SrvGroupID, //服务类型
             @WebParam(name = "Customer") String Customer, //卡号
             @WebParam(name = "QueueNo") String QueueNo, //票号
-            @WebParam(name = "StatusType") String StatusType //就诊状态
+            @WebParam(name = "StatusType") String StatusType, //就诊状态
+            @WebParam(name = "WSID") Integer WSID //工作站ID
     );
     //过号激活
     @WebMethod(operationName = "queueAct",action = "http://queueService.xh.com/queueAct")
@@ -30,4 +31,9 @@ public interface SrvGroupSoap {
     @WebMethod(operationName = "queueZG",action = "http://queueService.xh.com/queueZG")
     @WebResult(name = "queueZGResult",targetNamespace = "http://queueService.xh.com")
     public String QueueZG(@WebParam(name = "Data_ID") Integer Data_ID);
+
+    //查询工作站
+    @WebMethod(operationName = "queueWSID",action = "http://queueService.xh.com/queueWSID")
+    @WebResult(name = "queueWSIDResult",targetNamespace = "http://queueService.xh.com")
+    public String QueueWSID();
 }

@@ -39,12 +39,13 @@ public class QueueSrvGroupSoapImpl implements SrvGroupSoap {
     }
 
     @Override
-    public String QueueByCondition(Integer SrvGroupID,String Customer, String QueueNo, String StatusType) {
+    public String QueueByCondition(Integer SrvGroupID,String Customer, String QueueNo, String StatusType,Integer WSID) {
         Map<String,Object> map1=new HashMap<>();
         map1.put("SrvGroupID",SrvGroupID);
         map1.put("Customer",Customer);
         map1.put("QueueNo",QueueNo);
         map1.put("StatusType",StatusType);
+        map1.put("WSID",WSID);
         Map<String,Object> queueByCondition=new LinkedHashMap<>();
         queueByCondition.put("result","0");
         queueByCondition.put("resultInfo","服务调用失败!");
@@ -99,6 +100,24 @@ public class QueueSrvGroupSoapImpl implements SrvGroupSoap {
         }
 
         return JSONObject.toJSONString(queueByCondition);
+    }
+
+    @Override
+    public String QueueWSID() {
+        Map<String,Object> queueWSIDMap=new LinkedHashMap<>();
+        queueWSIDMap.put("result","0");
+        queueWSIDMap.put("resultInfo","服务调用失败!");
+        try {
+            List<Map<String, Object>> maps =queueSrvGroup.QueueWSID();
+            queueWSIDMap.put("result","1");
+            queueWSIDMap.put("resultInfo","服务调用成功!");
+            queueWSIDMap.put("data",maps);
+        } catch (Exception e) {
+            e.printStackTrace();
+            queueWSIDMap.put("resultInfo","服务调用异常!\t"+e.getMessage());
+        }
+
+        return JSONObject.toJSONString(queueWSIDMap);
     }
 
 
