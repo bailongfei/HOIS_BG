@@ -12,7 +12,7 @@
    <!--查询业务-->
    <select id="queueByCondition" parameterType="map" resultType="map" >
 
-       select qw.Data_ID,qw.RegDate,qw.Queue_No,qw.Queue_Pos,qw.Customer_Name,qw.Customer_No,qw.Customer_ID,qw.Status_Type,qw.Customer_Type,tw.StatusTypeName,sg.SrvGroup_Name,ws.WS_ID,ws.WS_Name,sf.Staff_Code,sf.Staff_Name from Basic_Queue_Work qw
+       select qw.Data_ID,qw.RegDate,qw.Queue_No,qw.Queue_Pos,qw.Customer_Name,qw.Customer_No,qw.Customer_ID,qw.Status_Type,qw.Customer_Type,tw.StatusTypeName,sg.SrvGroup_ID,sg.SrvGroup_Name,ws.WS_ID,ws.WS_Name,sf.Staff_Code,sf.Staff_Name from Basic_Queue_Work qw
 		left join Basic_SrvGroup sg on qw.SrvGroup_ID=sg.SrvGroup_ID
 		left join Basic_WorkStation ws on qw.WS_ID=ws.WS_ID
 		left join Basic_StaffInfo sf on qw.Staff_ID=sf.Staff_ID
