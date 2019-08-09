@@ -39,8 +39,9 @@ public class QueueSrvGroupSoapImpl implements SrvGroupSoap {
     }
 
     @Override
-    public String QueueByCondition(String Customer, String QueueNo, String StatusType) {
+    public String QueueByCondition(Integer SrvGroupID,String Customer, String QueueNo, String StatusType) {
         Map<String,Object> map1=new HashMap<>();
+        map1.put("SrvGroupID",SrvGroupID);
         map1.put("Customer",Customer);
         map1.put("QueueNo",QueueNo);
         map1.put("StatusType",StatusType);
