@@ -39,7 +39,7 @@ public class QueueSrvGroupSoapImpl implements SrvGroupSoap {
     }
 
     @Override
-    public String QueueByCondition(Integer SrvGroupID,String Customer, String QueueNo, String StatusType,String WSID) {
+    public String QueueByCondition(String SrvGroupID,String Customer, String QueueNo, String StatusType,String WSID) {
         Map<String,Object> map1=new HashMap<>();
         map1.put("SrvGroupID",SrvGroupID);
         map1.put("Customer",Customer);

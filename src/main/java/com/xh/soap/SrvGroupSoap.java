@@ -16,7 +16,7 @@ public interface SrvGroupSoap {
     @WebMethod(operationName = "queueByCondition",action = "http://queueService.xh.com/queueByCondition")
     @WebResult(name = "queueByConditionResult",targetNamespace = "http://queueService.xh.com")
     public String QueueByCondition(
-            @WebParam(name="SrvGroupID") Integer SrvGroupID, //服务类型
+            @WebParam(name="SrvGroupID") String SrvGroupID, //服务类型
             @WebParam(name = "Customer") String Customer, //卡号
             @WebParam(name = "QueueNo") String QueueNo, //票号
             @WebParam(name = "StatusType") String StatusType, //就诊状态
