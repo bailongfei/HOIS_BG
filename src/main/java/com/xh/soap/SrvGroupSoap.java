@@ -20,7 +20,7 @@ public interface SrvGroupSoap {
             @WebParam(name = "Customer") String Customer, //卡号
             @WebParam(name = "QueueNo") String QueueNo, //票号
             @WebParam(name = "StatusType") String StatusType, //就诊状态
-            @WebParam(name = "WSID") Integer WSID //工作站ID
+            @WebParam(name = "WSID") String WSID //工作站ID
     );
     //过号激活
     @WebMethod(operationName = "queueAct",action = "http://queueService.xh.com/queueAct")
