@@ -34,7 +34,7 @@
               and  qw.WS_ID=#{WSID}
             </if>
         </where>
-       order by Customer_Type,Data_ID asc
+       order by Customer_Type,Queue_Pos,Data_ID asc
    </select>
     <!--过好激活-->
     <select id="QueueAct" parameterType="map" resultType="map" statementType="CALLABLE">
