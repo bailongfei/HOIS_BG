@@ -42,7 +42,7 @@
         #{Data_ID,mode=IN,jdbcType=NUMERIC}
     </select>
     <!--指定呼叫-->
-    <select id="Queue_ZDHJ" parameterType="map" statementType="CALLABLE">
+    <select id="Queue_ZDHJ" parameterType="map" resultType="map" statementType="CALLABLE">
         execute SP_WS_Queue_ZDHJ
         #{Data_ID,mode=IN,jdbcType=NUMERIC},
         #{WSID,mode=IN,jdbcType=NUMERIC},

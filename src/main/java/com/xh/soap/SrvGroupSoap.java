@@ -37,7 +37,14 @@ public interface SrvGroupSoap {
     @WebResult(name = "queueWSIDResult",targetNamespace = "http://queueService.xh.com")
     public String QueueWSID();
 
-
+    //指定呼叫
+    @WebMethod(operationName = "queueZDHJ",action = "http://queueService.xh.com/queueZDHJ")
+    @WebResult(name = "queueZDHJResult",targetNamespace = "http://queueService.xh.com")
+    public String Queue_ZDHJ(
+            @WebParam(name = "Data_ID") Integer Data_ID,
+            @WebParam(name = "WSID") Integer WSID,
+            @WebParam(name = "StaffCode") String StaffCode
+    );
 
 
 }

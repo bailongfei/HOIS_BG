@@ -120,5 +120,26 @@ public class QueueSrvGroupSoapImpl implements SrvGroupSoap {
         return JSONObject.toJSONString(queueWSIDMap);
     }
 
+    @Override
+    public String Queue_ZDHJ(Integer Data_ID, Integer WSID, String StaffCode) {
+        Map<String,Object> queueZDHJ=new LinkedHashMap<>();
+        queueZDHJ.put("Data_ID",Data_ID);
+        queueZDHJ.put("WSID",WSID);
+        queueZDHJ.put("StaffCode",StaffCode);
+        queueZDHJ.put("result","0");
+        queueZDHJ.put("resultInfo","服务调用失败!");
+        try {
+            Map<String, Object> maps =queueSrvGroup.Queue_ZDHJ(queueZDHJ);
+            queueZDHJ.put("result","1");
+            queueZDHJ.put("resultInfo","服务调用成功!");
+            queueZDHJ.put("data",maps);
+        } catch (Exception e) {
+            e.printStackTrace();
+            queueZDHJ.put("resultInfo","服务调用异常!\t"+e.getMessage());
+        }
+
+        return JSONObject.toJSONString(queueZDHJ);
+    }
+
 
 }
