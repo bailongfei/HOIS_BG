@@ -36,4 +36,8 @@ public interface SrvGroupSoap {
     @WebMethod(operationName = "queueWSID",action = "http://queueService.xh.com/queueWSID")
     @WebResult(name = "queueWSIDResult",targetNamespace = "http://queueService.xh.com")
     public String QueueWSID();
+
+
+
+
 }

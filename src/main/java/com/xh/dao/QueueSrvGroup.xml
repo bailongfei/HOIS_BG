@@ -36,10 +36,17 @@
         </where>
        order by Customer_Type,Queue_Pos,Data_ID asc
    </select>
-    <!--过好激活-->
+    <!--过号激活-->
     <select id="QueueAct" parameterType="map" resultType="map" statementType="CALLABLE">
         exec SP_MS_Queue_Act
         #{Data_ID,mode=IN,jdbcType=NUMERIC}
+    </select>
+    <!--指定呼叫-->
+    <select id="Queue_ZDHJ" parameterType="map" statementType="CALLABLE">
+        execute SP_WS_Queue_ZDHJ
+        #{Data_ID,mode=IN,jdbcType=NUMERIC},
+        #{WSID,mode=IN,jdbcType=NUMERIC},
+        #{StaffCode,mode=IN,jdbcType=VARCHAR}
     </select>
     <!--客户照顾-->
     <select id="QueueZG" parameterType="map" resultType="map">
@@ -50,4 +57,5 @@
     <select id="QueueWSID"  resultType="map">
         select ws.*,wsw.Staff_ID,wsw.Staff_Code,wsw.WS_Status_Type,wsw.WS_Preiod_Work,wsw.DataID from Basic_WorkStation ws left join Basic_WorkStation_Work wsw on ws.WS_ID=wsw.WS_ID
     </select>
+
 </mapper>

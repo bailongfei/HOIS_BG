@@ -83,7 +83,7 @@ public class UserSoapImpl implements UserSoap {
 
         for (int i=0;i<workList.size();i++){
 
-            System.out.println("List集合值："+workList.get(i));
+            //System.out.println("List集合值："+workList.get(i));
         }
 
         return JSONObject.toJSONString(workList);

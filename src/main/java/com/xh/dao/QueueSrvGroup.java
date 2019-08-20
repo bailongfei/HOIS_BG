@@ -9,4 +9,5 @@ public interface QueueSrvGroup {
     public Map<String,Object> QueueAct(Map<String,Object> map);
     public Map<String,Object> QueueZG(Map<String,Object> map);
     public List<Map<String,Object>> QueueWSID();
+    Map<String,Object>  Queue_ZDHJ(Map<String,Object> map);
 }
